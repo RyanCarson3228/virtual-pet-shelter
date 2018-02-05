@@ -31,13 +31,26 @@ public class VirtualPetShelterTest {
 		
 		assertEquals(2, check);
 	}
+	@Test 
+	public void shouldReomveAPet() {
+		underTest.addPet(new VirtualPet("Harry", "Description"));
+		underTest.addPet(new VirtualPet("Joe", "Description"));
+		underTest.removePet(new VirtualPet("Harry", "Description"));
+		int check = underTest.listSize();
+		assertEquals(1, check);
+	}
 	
 	@Test
-	public void nameShouldIndividualInfo() {
+	public void nameShouldGetIndividualInfo() {
 		VirtualPet expected = new VirtualPet("Harry", "Description");
 		underTest.addPet(expected);
 		VirtualPet check = underTest.getPet("Harry");
 		assertEquals(expected, check);
+	}
+	
+	@Test
+	public void shouldFeedAllPets() {
+		
 	}
 	
 	

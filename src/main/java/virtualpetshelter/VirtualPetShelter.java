@@ -11,6 +11,11 @@ public class VirtualPetShelter {
 	public void addPet(VirtualPet virtualPet) {
 		pets.put(virtualPet.getName(), virtualPet);
 	}
+	
+	public void removePet(VirtualPet virtualPet) {
+		pets.remove(virtualPet.getName());
+		
+	}
 
 	public int listSize() {
 		return pets.size();
@@ -19,6 +24,11 @@ public class VirtualPetShelter {
 	public VirtualPet getPet(String name) {
 		return pets.get(name);
 	}
-	
+
+//	public void feedAll() {
+//		for(int i = 0; i <pets.size(); i++) {
+//			
+//		}
+//	}
 	
 }
