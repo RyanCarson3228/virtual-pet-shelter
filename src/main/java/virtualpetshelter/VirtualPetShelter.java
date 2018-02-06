@@ -23,13 +23,13 @@ public class VirtualPetShelter {
 		pets.put(virtualPet.getName(), virtualPet);
 	}
 
-	public int listSize() {
+	public int size() {
 		return pets.size();
 	}
 
 	// allow adoption of a homeless pet
-	public void removePet(VirtualPet virtualPet) {
-		pets.remove(virtualPet.getName());
+	public void removePet(String adopted) {
+		pets.remove(adopted);
 
 	}
 
@@ -89,25 +89,30 @@ public class VirtualPetShelter {
 		}
 	}
 
-	//console methods
+	// console methods
 	public void printShelterStatus() {
-		System.out.println("This is the Status of the the pets at the Shelter:");
-		System.out.println("Name\t\t|Thirst\t|Hunger\t|Boredom");
-		System.out.println("--------|-------|------|-------");
+		System.out.println("\nThis is the Status of the the pets at the Shelter:");
+		System.out.println("Name\t|Thirst\t|Hunger\t|Boredom");
+		System.out.println("--------|-------|-------|-------");
 		for (VirtualPet virtualPet : pets()) {
-			System.out.println(virtualPet);
-			System.out.print(virtualPet.getName() + "\t\t|" + virtualPet.getThirst() + "\t|");
-			System.out.println(virtualPet.getHunger() + "\t|" + virtualPet.getBoredom());
+			System.out.print(virtualPet.getName() + "\t|" + virtualPet.getThirst() + "\t|");
+			System.out.println(virtualPet.getHunger() + "\t|" + virtualPet.getBoredom() + "\n");
 		}
 
 	}
 
-	public void NameAndDescription() {
+	public void nameAndDescription() {
 		for (VirtualPet virtualPet : pets()) {
 			System.out.println("[" + virtualPet.getName() + "] " + virtualPet.getDescription() + ".");
 		}
 	}
-	
-	
 
+	public boolean keyCheck(String name) {
+		for (VirtualPet virtualPet : pets()) {
+			if (virtualPet.getName().equalsIgnoreCase(name)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

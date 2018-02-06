@@ -1,8 +1,6 @@
 package virtualpetshelter;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,7 +28,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldAddAPet() {
 		underTest.addPet(new VirtualPet(TEST_PET_ONE_NAME, TEST_PET_ONE_DESCRIPTION));
-		int check = underTest.listSize();
+		int check = underTest.size();
 
 		assertEquals(1, check);
 	}
@@ -39,7 +37,7 @@ public class VirtualPetShelterTest {
 	public void shouldAddTwoPets() {
 		underTest.addPet(new VirtualPet(TEST_PET_ONE_NAME, TEST_PET_ONE_DESCRIPTION));
 		underTest.addPet(new VirtualPet(TEST_PET_TWO_NAME, TEST_PET_TWO_DESCRIPTION));
-		int check = underTest.listSize();
+		int check = underTest.size();
 
 		assertEquals(2, check);
 	}
@@ -48,8 +46,8 @@ public class VirtualPetShelterTest {
 	public void shouldRemovePet() {
 		underTest.addPet(new VirtualPet(TEST_PET_ONE_NAME, TEST_PET_ONE_DESCRIPTION));
 		underTest.addPet(new VirtualPet(TEST_PET_TWO_NAME, TEST_PET_TWO_DESCRIPTION));
-		underTest.removePet(new VirtualPet(TEST_PET_ONE_NAME, TEST_PET_TWO_DESCRIPTION));
-		int check = underTest.listSize();
+		underTest.removePet(TEST_PET_ONE_NAME);
+		int check = underTest.size();
 		assertEquals(1, check);
 	}
 
