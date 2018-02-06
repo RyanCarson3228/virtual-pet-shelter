@@ -11,10 +11,10 @@ public class VirtualPetShelter {
 	public void addPet(VirtualPet virtualPet) {
 		pets.put(virtualPet.getName(), virtualPet);
 	}
-	
+
 	public void removePet(VirtualPet virtualPet) {
 		pets.remove(virtualPet.getName());
-		
+
 	}
 
 	public int listSize() {
@@ -25,10 +25,18 @@ public class VirtualPetShelter {
 		return pets.get(name);
 	}
 
-//	public void feedAll() {
-//		for(int i = 0; i <pets.size(); i++) {
-//			
-//		}
-//	}
+	public int getPetThirst(String name) {
+		return pets.get(name).getThirst();
+	}
+
+	public int getPetHunger(String name) {
+		return pets.get(name).getHunger();
+	}
+
+	public int getPetBoredom(String name) {
+		return pets.get(name).getBoredom();
+	}
+
 	
+
 }

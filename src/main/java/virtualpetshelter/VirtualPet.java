@@ -1,13 +1,13 @@
 package virtualpetshelter;
 
 public class VirtualPet {
-	
+
 	private String name;
 	private String description;
 	private int hunger;
 	private int thirst;
 	private int boredom;
-	
+
 	public VirtualPet(String name, String description) {
 		this(name, description, 25, 25, 25);
 	}
@@ -41,9 +41,9 @@ public class VirtualPet {
 	}
 
 	public void tick() {
-		thirst+=5;
-		hunger+=3;
-		boredom+=4;
+		thirst += 5;
+		hunger += 3;
+		boredom += 4;
 	}
 
 	public void drink() {
@@ -51,10 +51,10 @@ public class VirtualPet {
 	}
 
 	public void feed() {
-		hunger-=6;
+		hunger -= 6;
 	}
 
 	public void play() {
-		boredom -=8;
+		boredom -= 8;
 	}
 }

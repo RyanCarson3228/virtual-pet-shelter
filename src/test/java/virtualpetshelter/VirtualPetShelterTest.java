@@ -32,7 +32,7 @@ public class VirtualPetShelterTest {
 		assertEquals(2, check);
 	}
 	@Test 
-	public void shouldReomveAPet() {
+	public void shouldRemovePet() {
 		underTest.addPet(new VirtualPet("Harry", "Description"));
 		underTest.addPet(new VirtualPet("Joe", "Description"));
 		underTest.removePet(new VirtualPet("Harry", "Description"));
@@ -41,7 +41,7 @@ public class VirtualPetShelterTest {
 	}
 	
 	@Test
-	public void nameShouldGetIndividualInfo() {
+	public void nameShouldGetPet() {
 		VirtualPet expected = new VirtualPet("Harry", "Description");
 		underTest.addPet(expected);
 		VirtualPet check = underTest.getPet("Harry");
@@ -49,8 +49,25 @@ public class VirtualPetShelterTest {
 	}
 	
 	@Test
-	public void shouldFeedAllPets() {
-		
+	public void shouldPullThirstFromRightAnimal() {
+		underTest.addPet(new VirtualPet("Harry", "Description", 25, 0, 0));
+		underTest.addPet(new VirtualPet("Joe", "Description", 20, 0, 0));
+		int check = underTest.getPetThirst("Harry");
+		assertEquals(25, check);
+	}
+	@Test
+	public void shouldPullHungerFromRightAnimal() {
+		underTest.addPet(new VirtualPet("Harry", "Description", 0, 25, 0));
+		underTest.addPet(new VirtualPet("Joe", "Description", 0, 20, 0));
+		int check = underTest.getPetHunger("Joe");
+		assertEquals(20, check);
+	}
+	@Test
+	public void shouldPullBoredomFromRightAnimal() {
+		underTest.addPet(new VirtualPet("Harry", "Description", 0, 0, 25));
+		underTest.addPet(new VirtualPet("Joe", "Description", 0, 0, 20));
+		int check = underTest.getPetBoredom("Joe");
+		assertEquals(20, check);
 	}
 	
 	
